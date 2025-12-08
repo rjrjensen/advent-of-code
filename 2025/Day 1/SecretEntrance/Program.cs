@@ -1,17 +1,8 @@
-﻿var input = File.ReadAllLines("input.txt");
+﻿using static SecretEntrance.DialTurner;
 
-int zeroCount = 0, currentNumber = 50;
+var input = File.ReadAllLines("input.txt");
 
-foreach (var instruction in input)
-{
-    var clicks = int.Parse(instruction[1..]);
-    var direction = instruction[0] == 'R' ? 1 : -1;
-    var rotation = clicks * direction;
-
-    currentNumber += rotation;
-    currentNumber %= 100;
-
-    if (currentNumber == 0) zeroCount++;
-}
+// var zeroCount = CountEveryLandingZero(input);
+var zeroCount = CountEveryPassingZero(input);
 
 Console.WriteLine("Zero Count: " + zeroCount);

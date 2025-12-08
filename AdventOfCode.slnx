@@ -2,5 +2,6 @@
   <Folder Name="/2025/" />
   <Folder Name="/2025/Day 1/">
     <Project Path="2025/Day 1/SecretEntrance/SecretEntrance.csproj" />
+    <Project Path="2025/Day 1/SecretEntranceTests/SecretEntranceTests.csproj" />
   </Folder>
 </Solution>
