@@ -1,6 +1,6 @@
-using SecretEntrance;
-
 namespace SecretEntranceTests;
+
+using SecretEntrance;
 
 public class DialTurnerTests
 {
