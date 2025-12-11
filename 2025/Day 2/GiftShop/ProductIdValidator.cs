@@ -1,3 +1,5 @@
+using System.Text.RegularExpressions;
+
 namespace GiftShop;
 
 public class ProductIdValidator
@@ -24,6 +26,25 @@ public class ProductIdValidator
         }
         
         return invalidIds.ToArray();
+    }
+
+    public long[] PullAllRepeatingIdsFromIdRanges(string[] idRanges)
+    {
+        List<long> invalidIds = [];
+
+        foreach (var range in idRanges)
+        {
+            var (beginning, end) = range.GetBoundsAsIntegers();
+            
+            for (var id = beginning; id <= end; id++)
+            {
+                if (IsIdInvalid(id)) invalidIds.Add(id);
+            }
+        }
+        
+        return invalidIds.ToArray();
+
+        bool IsIdInvalid(long id) => Regex.IsMatch(id.ToString(), @"^(\d+)\1+$");
     }
 }
 
